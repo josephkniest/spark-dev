@@ -22,12 +22,11 @@ RUN apt-get install -y gcc
 
 RUN apt-get install -y libevent-dev
 
-RUN apt-get install -y libboost-dev
+RUN apt-get install -y libboost-system-dev libboost-filesystem-dev libboost-test-dev libboost-thread-dev
 
-#RUN apt-get install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
+#RUN apt-get install -y build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
 
 RUN cd ./bitcoin ; ./contrib/install_db4.sh `pwd`
-
 #./autogen.sh
-#./configure
+#./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"
 #make
