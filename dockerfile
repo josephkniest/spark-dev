@@ -28,6 +28,12 @@ RUN apt-get install -y libboost-system-dev libboost-filesystem-dev libboost-test
 
 RUN export BDB_PREFIX='/bitcoin/db4'
 
+COPY ./ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz /root/
+
+RUN tar xf /root/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
+
+RUN cp ./ripgrep-0.5.2-x86_64-unknown-linux-musl/rg /bin
+
 #RUN cd ./bitcoin ; ./contrib/install_db4.sh `pwd`
 #./autogen.sh
 #./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"
